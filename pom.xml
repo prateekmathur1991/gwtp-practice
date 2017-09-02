@@ -115,6 +115,7 @@
 			<groupId>com.gwtplatform</groupId>
 			<artifactId>gwtp-dispatch-rest</artifactId>
 			<version>${gwt.dispatch.rest.version}</version>
+			<scope>provided</scope>
 		</dependency>
 
 		<!-- GWTP Dispatch Rest Shared -->
@@ -122,15 +123,16 @@
 			<groupId>com.gwtplatform</groupId>
 			<artifactId>gwtp-dispatch-rest-shared</artifactId>
 			<version>${gwt.dispatch.rest.version}</version>
+			<scope>compile</scope>
 		</dependency>
 
 		<!-- GWTP Resource Delegates -->
-		<dependency>
+		<!-- <dependency>
 			<groupId>com.gwtplatform.extensions</groupId>
 			<artifactId>dispatch-rest-delegates</artifactId>
 			<version>${gwtp.version}</version>
 			<scope>provided</scope>
-		</dependency>
+		</dependency> -->
 
 		<!-- DI -->
 		<dependency>
