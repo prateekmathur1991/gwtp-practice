@@ -6,12 +6,15 @@
     
     <inherits name="com.github.nmorel.gwtjackson.GwtJackson" />
     <inherits name="com.gwtplatform.dispatch.rest.DispatchRest"/>
-    <inherits name="com.gwtplatform.dispatch.rest.delegates.ResourceDelegate"/>
+    <!-- <inherits name="com.gwtplatform.dispatch.rest.delegates.ResourceDelegate"/> -->
     	
     <inherits name="com.gwtplatform.mvp.MvpWithEntryPoint"/>
     
     <extend-configuration-property name="gin.ginjector.modules"
                                    value="com.example.gwtpexample.client.gin.ClientModule"/>
+                                   
+	<extend-configuration-property name="gin.ginjector.modules"
+                                   value="com.example.gwtpexample.client.gin.DispatchModule"/>
 
     <!-- Specify the paths for translatable code                    -->
     <source path='client'/>
