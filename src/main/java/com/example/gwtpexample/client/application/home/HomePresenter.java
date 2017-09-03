@@ -8,7 +8,7 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.inject.Inject;
 import com.google.web.bindery.event.shared.EventBus;
-import com.gwtplatform.dispatch.rest.client.RestDispatch;
+import com.gwtplatform.dispatch.rest.delegates.client.ResourceDelegate;
 import com.gwtplatform.mvp.client.Presenter;
 import com.gwtplatform.mvp.client.View;
 import com.gwtplatform.mvp.client.annotations.NameToken;
@@ -18,8 +18,7 @@ import com.gwtplatform.mvp.shared.proxy.PlaceRequest;
 
 public class HomePresenter extends Presenter<HomePresenter.MyView, HomePresenter.MyProxy> {
 
-	private RestDispatch restDispatch;
-	private RestResource restResource;
+	private ResourceDelegate<RestResource> restResourceDelegate;
 
 	interface MyView extends View {
 	}
@@ -30,10 +29,9 @@ public class HomePresenter extends Presenter<HomePresenter.MyView, HomePresenter
 	}
 
 	@Inject
-	HomePresenter(EventBus eventBus, MyView view, MyProxy proxy, RestDispatch restDispatch, RestResource restResource) {
+	HomePresenter(EventBus eventBus, MyView view, MyProxy proxy, ResourceDelegate<RestResource> restResourceDelegate) {
 		super(eventBus, view, proxy, ApplicationPresenter.SLOT_MAIN);
-		this.restDispatch = restDispatch;
-		this.restResource = restResource;
+		this.restResourceDelegate = restResourceDelegate;
 	}
 
 	@Override
@@ -45,24 +43,25 @@ public class HomePresenter extends Presenter<HomePresenter.MyView, HomePresenter
 	public void prepareFromRequest(PlaceRequest request) {
 		super.prepareFromRequest(request);
 
-		restDispatch.execute(restResource.getRestResponse(), new AsyncCallback<RestResponseDto>() {
+		restResourceDelegate.withCallback(new AsyncCallback<RestResponseDto>() {
 
 			@Override
 			public void onFailure(Throwable caught) {
+				GWT.log("REST request failure");
 				GWT.log(caught.getLocalizedMessage());
-				revealPrenster();
+				revealPresenter();
 			}
 
 			@Override
 			public void onSuccess(RestResponseDto result) {
 				GWT.log(result.getToken());
 				GWT.log(result.getRefreshToken());
-				revealPrenster();
+				revealPresenter();
 			}
 		});
 	}
 
-	private void revealPrenster() {
+	private void revealPresenter() {
 		getProxy().manualReveal(this);
 	}
 }

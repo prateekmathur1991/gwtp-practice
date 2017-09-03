@@ -6,7 +6,7 @@
     
     <inherits name="com.github.nmorel.gwtjackson.GwtJackson" />
     <inherits name="com.gwtplatform.dispatch.rest.DispatchRest"/>
-    <!-- <inherits name="com.gwtplatform.dispatch.rest.delegates.ResourceDelegate"/> -->
+    <inherits name="com.gwtplatform.dispatch.rest.delegates.ResourceDelegate"/>
     	
     <inherits name="com.gwtplatform.mvp.MvpWithEntryPoint"/>
     

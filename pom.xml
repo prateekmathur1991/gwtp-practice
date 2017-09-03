@@ -127,12 +127,12 @@
 		</dependency>
 
 		<!-- GWTP Resource Delegates -->
-		<!-- <dependency>
+		<dependency>
 			<groupId>com.gwtplatform.extensions</groupId>
 			<artifactId>dispatch-rest-delegates</artifactId>
 			<version>${gwtp.version}</version>
 			<scope>provided</scope>
-		</dependency> -->
+		</dependency>
 
 		<!-- DI -->
 		<dependency>
