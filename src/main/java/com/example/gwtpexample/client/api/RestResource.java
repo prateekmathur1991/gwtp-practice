@@ -5,7 +5,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import com.example.gwtpexample.shared.dto.RestResponseDto;
+import com.example.gwtpexample.client.dto.RestResponseDto;
 import com.gwtplatform.dispatch.rest.shared.RestAction;
 
 @Produces(MediaType.APPLICATION_JSON)

@@ -2,8 +2,8 @@ package com.example.gwtpexample.client.application.home;
 
 import com.example.gwtpexample.client.api.RestResource;
 import com.example.gwtpexample.client.application.ApplicationPresenter;
+import com.example.gwtpexample.client.dto.RestResponseDto;
 import com.example.gwtpexample.client.place.NameTokens;
-import com.example.gwtpexample.shared.dto.RestResponseDto;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.inject.Inject;
