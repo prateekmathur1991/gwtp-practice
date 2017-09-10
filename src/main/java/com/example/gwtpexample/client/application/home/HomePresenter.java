@@ -4,6 +4,7 @@ import com.example.gwtpexample.client.api.RestResource;
 import com.example.gwtpexample.client.application.ApplicationPresenter;
 import com.example.gwtpexample.client.dto.RestResponseDto;
 import com.example.gwtpexample.client.place.NameTokens;
+import com.example.gwtpexample.client.security.AccessAllGatekeeper;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.inject.Inject;
@@ -13,6 +14,7 @@ import com.gwtplatform.mvp.client.Presenter;
 import com.gwtplatform.mvp.client.View;
 import com.gwtplatform.mvp.client.annotations.NameToken;
 import com.gwtplatform.mvp.client.annotations.ProxyStandard;
+import com.gwtplatform.mvp.client.annotations.UseGatekeeper;
 import com.gwtplatform.mvp.client.proxy.ProxyPlace;
 import com.gwtplatform.mvp.shared.proxy.PlaceRequest;
 
@@ -26,6 +28,7 @@ public class HomePresenter extends Presenter<HomePresenter.MyView, HomePresenter
 
 	@ProxyStandard
 	@NameToken(NameTokens.HOME)
+	@UseGatekeeper(AccessAllGatekeeper.class)
 	interface MyProxy extends ProxyPlace<HomePresenter> {
 	}
 
